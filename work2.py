@@ -195,8 +195,8 @@ def db_date_entry(rows_left_to_import):
 
 
 if __name__ == '__main__':
-    FILE_QUANTITY = 20
-    LINE_QUANTITY = 1000
+    FILE_QUANTITY = 100
+    LINE_QUANTITY = 100000
     TOTAL_ROW_QUANTITY = FILE_QUANTITY * LINE_QUANTITY
     YEAR_DIFFERENCE = 5
     RANDOM_LATIN_STR_LENGTH = 10
