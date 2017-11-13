@@ -1,4 +1,3 @@
-
 from random import choice
 from string import ascii_lowercase
 import numpy as np
@@ -108,16 +107,15 @@ def file_writer(FILE_QUANTITY, LINE_QUANTITY, YEAR_DIFFERENCE, RANDOM_CYRILLIC_S
     for file_counter in range(FILE_QUANTITY):
         temp_file = open('./txt_folder/test_file' + str(file_counter + 1) + '.txt', 'w')
         for line_counter in range(LINE_QUANTITY):
-            temp_file.write(str(random_date(today_date, delta)))
-            temp_file.write('||')
-            temp_file.write(''.join(choice(ascii_lowercase) for i in range(RANDOM_LATIN_STR_LENGTH)))
-            temp_file.write('||')
-            temp_file.write(random_cyrillic_str(RANDOM_CYRILLIC_STR_LENGTH))
-            temp_file.write('||')
-            temp_file.write(str(random.randrange(1, 10e7, 2)))
-            temp_file.write('||')
-            temp_file.write((str('{:.8f}'.format(random.random() + float(random.randint(1, 19))))))
-            temp_file.write('\n')
+            delimiter = '||'
+            list = []
+            list.append(str(random_date(today_date, delta)))
+            list.append(''.join(choice(ascii_lowercase) for i in range(RANDOM_LATIN_STR_LENGTH)))
+            list.append(random_cyrillic_str(RANDOM_CYRILLIC_STR_LENGTH))
+            list.append(str(random.randrange(1, 10e7, 2)))
+            list.append(str('{:.8f}'.format(random.random() + float(random.randint(1, 19)))) + '\n')
+            string_for_file_writing = delimiter.join(list)
+            temp_file.write(string_for_file_writing)
         temp_file.close()
 
 def select_int_from_db():
